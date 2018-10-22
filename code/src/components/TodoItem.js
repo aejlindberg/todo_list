@@ -18,17 +18,17 @@ handleChecked = () => {
     done: !this.state.done
   })
 }
-  render() {
-    return (
-      <div>
-        <input
-          type="checkbox"
-          checked={this.props.done}
-          onChange={this.handleChecked} />
-        {this.props.text}
-      </div>
-    )
-  }
+render() {
+  return (
+    <div>
+      <input
+        type="checkbox"
+        checked={this.props.done}
+        onChange={this.handleChecked} />
+      {this.props.text}
+    </div>
+  )
+}
 
 }
 

@@ -5,9 +5,16 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      todoItems: [], // store every value which we passing to our todo list
-      inputText: ""
+    const storeData = localStorage.getItem("userToDos")
+    if (storeData) {
+      this.state = {
+        todoItems: JSON.parse(storeData)
+      }
+    } else {
+      this.state = {
+        todoItems: [], // store every value which we passing to our todo list
+        inputText: ""
+      }
     }
   }
 
@@ -21,6 +28,7 @@ class App extends React.Component {
     const currentItems = this.state.todoItems
     const item = { text: this.state.inputText, done: false }
     currentItems.push(item)
+    localStorage.setItem("userToDos", JSON.stringify(currentItems))
     this.setState({
       todoItems: currentItems
     })
@@ -29,6 +37,7 @@ class App extends React.Component {
   updatedTodoItem = (index, done) => {
     const currentItems = this.state.todoItems
     currentItems[index].done = done
+    localStorage.setItem("userToDos", JSON.stringify(currentItems))
     this.setState({
       todoItems: currentItems
     })
