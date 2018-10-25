@@ -12,7 +12,7 @@ class App extends React.Component {
       }
     } else {
       this.state = {
-        todoItems: [], // store every value which we passing to our todo list
+        todoItems: [],
         inputText: ""
       }
     }
@@ -45,20 +45,24 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <form>
-          <input type="text" onChange={this.handleInputChange} />
-          <button type="button" onClick={this.addTodoItem}>Add</button>
-        </form>
-        {this.state.todoItems.map((item, index) => (
-          <TodoItem
-            text={item.text}
-            key={index}
-            index={index}
-            done={item.done}
-            updatedTodoItem={this.updatedTodoItem} />
-        ))}
-
+      <div className="wrapper">
+        <h1><span role="img" aria-label="Writing Hand">&#x270D;</span> TO DO<br />
+          <span role="img" aria-label="White heavy check mark">&#x2705;</span> TA DAAM!
+        </h1>
+        <div className="formSection">
+          <form className="form">
+            <input id="formInput" type="text" onChange={this.handleInputChange} />
+            <button type="button" onClick={this.addTodoItem}>ADD</button>
+          </form>
+          {this.state.todoItems.map((item, index) => (
+            <TodoItem
+              text={item.text}
+              key={index}
+              index={index}
+              done={item.done}
+              updatedTodoItem={this.updatedTodoItem} />
+          ))}
+        </div>
       </div>
     )
   }

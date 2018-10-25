@@ -20,8 +20,9 @@ handleChecked = () => {
 }
 render() {
   return (
-    <div>
+    <div className="inputField">
       <input
+        id="checkboxInput"
         type="checkbox"
         checked={this.props.done}
         onChange={this.handleChecked} />
