@@ -46,9 +46,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <h1><span role="img" aria-label="Writing Hand">&#x270D;</span> TO DO<br />
-          <span role="img" aria-label="White heavy check mark">&#x2705;</span> TA DAAM!
-        </h1>
+        <h1> MY TO DO&apos;S</h1>
         <div className="formSection">
           <form className="form">
             <input id="formInput" type="text" onChange={this.handleInputChange} />
